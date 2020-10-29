@@ -6,25 +6,16 @@
 using namespace std;
 #ifndef LEETCODE_IN_CPP_TWOSUM_H
 #define LEETCODE_IN_CPP_TWOSUM_H
-vector<int> twoSum(vector<int> &numbers, int target)
-{
-    //Key is the number and value is its index in the vector.
-    unordered_map<int, int> hash;
-    vector<int> result;
-    for (int i = 0; i < numbers.size(); i++) {
-        int numberToFind = target - numbers[i];
+vector<int> twoSum(vector<int>& nums, int target) {
+    unordered_map<int, int> imap;
 
-        //if numberToFind is found in map, return them
-        if (hash.find(numberToFind) != hash.end()) {
-            //+1 because indices are NOT zero based
-            result.push_back(hash[numberToFind] + 1);
-            result.push_back(i + 1);
-            return result;
-        }
+    for (int i = 0;; ++i) {
+        auto it = imap.find(target - nums[i]);
 
-        //number was not found. Put it in the map.
-        hash[numbers[i]] = i;
+        if (it != imap.end())
+            return vector<int> {i, it->second};
+
+        imap[nums[i]] = i;
     }
-    return result;
 }
 #endif //LEETCODE_IN_CPP_TWOSUM_H
