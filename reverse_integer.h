@@ -6,10 +6,10 @@
 #define LEETCODE_IN_CPP_REVERSE_INTEGER_H
 #include <cmath>
 int reverse(int x){
-    long rev = 0;
-    int y = abs(x);
     if(pow(2,31)-1<x || x < -pow(2,31))
         return 0;
+    long rev = 0;
+    int y = abs(x);
     while (y != 0){
         int pop = y % 10;
         y = y/10;
