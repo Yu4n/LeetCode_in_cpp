@@ -1,22 +1,44 @@
 #include <iostream>
 #include <vector>
-#include "mergeTwoLists.h"
 using std::vector;
 using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
 
-int main(){
-    ListNode l13(4);
-    ListNode l12(3, &l13);
-    ListNode l11(1, &l12);
-    ListNode l23(4);
-    ListNode l22(2, &l23);
-    ListNode l21(1, &l22);
-    ListNode *head = mergeTwoLists(&l11,&l21);
-    while (head != nullptr){
-        cout << head->val << endl;
-        head = head->next;
-    }
+template <class T> void check_and_print(T &vec){
+    cout << "size: " << vec.size() << "  content: [";
+    for (auto it = vec.begin(); it != vec.end(); ++it)
+        cout << *it << (it != vec.end() - 1 ? "," : "");
+    cout << "]\n" << endl;
+}
+
+/*void check_and_print(const vector<string>& vec)
+{
+
+    cout << "size: " << vec.size() << "  content: [";
+    for (auto it = vec.begin(); it != vec.end(); ++it)
+        cout << *it << (it != vec.end() - 1 ? "," : "");
+    cout << "]\n" << endl;
+}*/
+
+int main()
+{
+    vector<int> v1;
+    vector<int> v2(10);
+    vector<int> v3(10, 42);
+    vector<int> v4{ 10 };
+    vector<int> v5{ 10, 42 };
+    vector<string> v6{ 10 };
+    vector<string> v7{ 10, "hi" };
+
+    check_and_print(v1);
+    check_and_print(v2);
+    check_and_print(v3);
+    check_and_print(v4);
+    check_and_print(v5);
+    check_and_print(v6);
+    check_and_print(v7);
+
+    return 0;
 }
