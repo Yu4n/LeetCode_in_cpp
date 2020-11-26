@@ -6,9 +6,8 @@
 #define LEETCODE_IN_CPP_REVERSE_INTEGER_H
 #include <cmath>
 int reverse(int x){
-    int rev = 0;
-    int y = x>0?x:-x; //negation of -2147483648 cannot be represented in type 'int';
-    // cast to an unsigned type to negate this value to itself
+    long rev = 0;
+    int y = abs(x);
     if(pow(2,31)-1<x || x < -pow(2,31))
         return 0;
     while (y != 0){
@@ -24,4 +23,5 @@ int reverse(int x){
     else
         return rev;
 }
+
 #endif //LEETCODE_IN_CPP_REVERSE_INTEGER_H
