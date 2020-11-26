@@ -1,4 +1,5 @@
 #include <iostream>
+#include "reverse_integer.h"
 #include <vector>
 using std::vector;
 using std::string;
@@ -15,13 +16,7 @@ template <class T> void check_and_print(T &vec){
 
 int main()
 {
-    vector<int> text;
-    for(int i=1;i<11;++i){
-        text.push_back(i);
-    }
-    check_and_print(text);
-    for(auto it=text.begin();it!=text.end();++it)
-        *it *= 2 **it;
-    check_and_print(text);
+    int a = 964632435;
+    cout << reverse(a);
     return 0;
 }
