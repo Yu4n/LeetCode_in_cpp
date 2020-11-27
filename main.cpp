@@ -17,16 +17,21 @@ int main()
 {
     int n;
     cin >> n;
-    string str;
-    std::getline(cin, str);
     for(int i = 0; i != n; ++i){
-        int cnt = 0;
-        //string str;
-        std::getline(cin, str);
-        for(const auto x:str){
-            if(isdigit(x))
-                cnt += 1;
+        int j;
+        cin >> j;
+        int fst, sec;
+        cin >> fst >> sec;
+        for(int a = 0; a != j - 2; ++a){
+            int num;
+            while (cin >> num){
+                if (num < fst){
+                    sec = fst;
+                    fst = num;
+                } else if (num > fst && num < sec)
+                    sec = num;
+            }
         }
-        cout << cnt << endl;
+        cout << sec << endl;
     }
 }
