@@ -5,14 +5,10 @@ using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
-
-template <class T> void check_and_print(T &vec){
-    cout << "size: " << vec.size() << " content: [";
-    for (auto it = vec.begin(); it != vec.end(); ++it)
-        cout << *it << (it != vec.end() - 1 ? "," : "");
-    cout << "]\n" << endl;
+template <class T> void swap ( T& a, T& b )
+{
+    T c(a); a=b; b=c;
 }
-
 int main()
 {
     int n;
@@ -20,18 +16,21 @@ int main()
     for(int i = 0; i != n; ++i){
         int j;
         cin >> j;
-        int fst, sec;
-        cin >> fst >> sec;
-        for(int a = 0; a != j - 2; ++a){
-            int num;
-            while (cin >> num){
-                if (num < fst){
-                    sec = fst;
-                    fst = num;
-                } else if (num > fst && num < sec)
-                    sec = num;
-            }
+        int num;
+        vector<int> nums;
+        for(int a = 0; a != j; ++a){
+            cin >> num;
+            nums.push_back(num);
         }
-        cout << sec << endl;
+        for(int k = 0; k != nums.size() - 1; ++k){
+            if(nums[k] > nums[k+1])
+                swap(nums[k],nums[k+1]);
+        }
+        for(int & num : nums){
+            cout << num << ' '; //(it != nums.end() - 1 ? " " : "");
+        }
+        nums.clear();
+        // 7 3 6 4 7 6 8 2
+        // 8 2 7 5 8 4 9 6 3
     }
 }
