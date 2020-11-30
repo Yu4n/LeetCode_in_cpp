@@ -1,36 +1,72 @@
-#include <iostream>
-#include <vector>
-using std::vector;
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
-template <class T> void swap ( T& a, T& b )
-{
-    T c(a); a=b; b=c;
-}
-int main()
-{
-    int n;
-    cin >> n;
-    for(int i = 0; i != n; ++i){
-        int j;
-        cin >> j;
-        int num;
-        vector<int> nums;
-        for(int a = 0; a != j; ++a){
-            cin >> num;
-            nums.push_back(num);
-        }
-        for(int k = 0; k != nums.size() - 1; ++k){
-            if(nums[k] > nums[k+1])
-                swap(nums[k],nums[k+1]);
-        }
-        for(auto x : nums){
-            cout << x << ' '; //(it != nums.end() - 1 ? " " : "");
-        }
-        cout << endl;
-        // 7 3 6 4 7 6 8 2
-        // 8 2 7 5 8 4 9 6 3
+#include <stdio.h>
+int res[1000] = {0};
+int a[1000] = {0};
+int n;
+int quicksort(int low, int high, int depth) {
+    if(low >= high) {
+        return 0;
     }
+    if(low+1 == high) {
+        if(a[low] > a[high]) {
+            int temp = a[low];
+            a[low] = a[high];
+            a[high] = a[low];
+        }
+        return 0;
+    }
+    int p = low;
+    for(int i=low; i<=high; i++) {
+        if(a[low] > a[i]) {
+            p++;
+            int temp = a[p];
+            a[p] = a[i];
+            a[i] = temp;
+        }
+    }
+    int temp = a[low];
+    a[low] = a[p];
+    a[p] = temp;
+
+    if(depth==1) {
+        res[p] = a[p];
+    }
+    if(depth==2) {
+        for(int i=low; i<=high; i++) {
+            res[i] = a[i];
+        }
+    }
+
+    quicksort(low, p-1, depth+1);
+    quicksort(p+1, high, depth+1);
+
+    return 0;
+}
+
+int solve() {
+    scanf("%d", &n);
+    for(int i=0; i<n; i++) {
+        scanf("%d", &a[i]);
+    }
+
+    quicksort(0, n-1, 1);
+
+    for(int i=0; i<n; i++) {
+        printf("%d ", res[i]);
+    }
+    printf("\n");
+    /*
+    for(int i=0; i<n; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");*/
+    return 0;
+}
+
+int main() {
+    int m;
+    scanf("%d", &m);
+    for(int i=0; i<m; i++) {
+        solve();
+    }
+    return 0;
 }
