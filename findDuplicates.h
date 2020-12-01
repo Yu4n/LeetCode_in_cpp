@@ -5,6 +5,7 @@
 #ifndef LEETCODE_IN_CPP_FINDDUPLICATES_H
 #define LEETCODE_IN_CPP_FINDDUPLICATES_H
 #include <vector>
+#include <cmath>
 using std::vector;
 // 4,3,2,7,8,2,3,1
 vector<int> findDuplicates(vector<int>& nums){

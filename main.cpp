@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include "findDuplicates.h"
 using std::vector;
 using std::string;
 using std::cout;
@@ -17,7 +16,6 @@ int main()
 {
     vector<int> nums{4,3,2,7,8,2,3,1};
     vector<int> res;
-    res = findDuplicates(nums);
     check_and_print(res);
     return 0;
 }
