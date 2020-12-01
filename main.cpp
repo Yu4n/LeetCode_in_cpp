@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "find_disappeared_numbers.h"
+#include "findDuplicates.h"
 using std::vector;
 using std::string;
 using std::cout;
@@ -9,7 +9,7 @@ using std::endl;
 
 int main()
 {
-    vector<int> nums{6,4,3,7,8};
+    vector<int> nums{4,3,2,7,8,2,3,1};
     vector<int> res;
     res = findDisappearedNumbers(nums);
     for(auto x:res){
