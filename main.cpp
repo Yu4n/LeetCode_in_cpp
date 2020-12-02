@@ -1,35 +1,44 @@
-#include<cstdio>
 #include <iostream>
-int max(int a,int b){
-    return a>b ? a : b;
-}
-int list[26];
-int dp[26];
-int main(){
-    int ln;
-    std::cin >> ln;
-    for(int i=0;i!=ln;++i) {
-        int n;
-        while (scanf("%d", &n) != EOF) {
-            for (int i = 1; i <= n; i++) {
-                scanf("%d", &list[i]);
-            }
-            for (int i = 1; i <= n; i++) {
-                int tmax = 1;
-                for (int j = 1; j < i; j++) {
-                    if (list[j] >= list[i]) {
-                        tmax = max(tmax, dp[j] + 1);
-                    }
-                }
-                dp[i] = tmax;
-            }
-            int ans = 1;
-            for (int i = 1; i <= n; i++) {
-                ans = max(ans, dp[i]);
-            }
-            printf("%d\n", ans);
-        }
-    }
-    return 0;
-}
+#include <cstdio>
+
+using namespace std;
+
+int a[10010],b[10010],h[10010],maxx,m=0,i=1,n=0,x;
 // 7 300 250 275 252 200 138 245
+// 7 181 205 471 782 1033 1058 1111
+int main()
+{
+    int ln;
+    cin >> ln;
+    for(int p=0;p!=ln;++p) {
+        int drop;
+        cin >> drop;
+        i = 1;
+        n = 0;
+        m = 0;
+        while (cin >> a[i]) {
+            maxx = 0;
+            for (int j = 1; j <= i - 1; j++) {
+                if (a[j] >= a[i])
+                    if (b[j] > maxx)
+                        maxx = b[j];
+            }
+            b[i] = maxx + 1;
+            if (b[i] > m) m = b[i];
+            x = 0;
+            for (int k = 1; k <= n; k++)
+                if (h[k] >= a[i])
+                    if (x == 0) x = k;
+                    else if (h[k] < h[x]) x = k;
+            if (x == 0) {
+                n++;
+                x = n;
+            }
+            h[x] = a[i];
+            i++;
+            if(i > drop) break;
+        }
+        cout << m << ' ' << n << endl;
+    }
+    return 0 ;
+}
