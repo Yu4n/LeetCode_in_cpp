@@ -4,7 +4,6 @@
 
 #ifndef LEETCODE_IN_CPP_REVERSE_INTEGER_H
 #define LEETCODE_IN_CPP_REVERSE_INTEGER_H
-#include <cmath>
 int reverse(int x){
     if(pow(2,31)-1<x || x < -pow(2,31))
         return 0;

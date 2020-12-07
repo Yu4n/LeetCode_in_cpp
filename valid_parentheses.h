@@ -4,10 +4,8 @@
 
 #ifndef LEETCODE_IN_CPP_VALID_PARENTHESES_H
 #define LEETCODE_IN_CPP_VALID_PARENTHESES_H
-#include <stack>
-#include <string>
-using std::string;
-using std::stack;
+
+// using std::stack;
 
 bool isValid(string s) {
     // string str = std::move(s);

@@ -4,9 +4,6 @@
 
 #ifndef LEETCODE_IN_CPP_FIND_DISAPPEARED_NUMBERS_H
 #define LEETCODE_IN_CPP_FIND_DISAPPEARED_NUMBERS_H
-#include <vector>
-#include <cmath>
-using std::vector;
 
 // Firstly, It is very intuitive to come up with
 // using O(N) space to store the information.
