@@ -6,16 +6,16 @@
 #define LEETCODE_IN_CPP_BALANCEDSTRINGSPLIT_H
 // RL
 int balancedStringSplit(string s){
-    int cnt = 0, rpt = 0;
-    for (string::iterator it = s.begin(); it != s.end();){
-        if (*it == *(it+1)){
-            rpt = rpt + 1;
-            it = it + 1;
-        } else {
-            s.erase(0, (rpt+1)*2);
-            rpt = 0;
-            cnt = cnt + 1;
-            it = s.begin();
+    int r_num = 0, l_num = 0, cnt = 0;
+    for (string::iterator it = s.begin(); it != s.end(); ++it){
+        if (*it == 'L'){
+            l_num++;
+        } else{
+            r_num++;
+        }
+        if (l_num == r_num){
+            cnt++;
+            l_num = r_num = 0;
         }
     }
     return cnt;
