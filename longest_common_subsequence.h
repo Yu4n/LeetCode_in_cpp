@@ -1,11 +1,6 @@
 //
 // Created by Yu4n on 2020-11-12.
 //
-#include <vector>
-#include <string>
-using std::string;
-using std::vector;
-using std::max;
 
 #ifndef LEETCODE_IN_CPP_LONGEST_COMMON_SUBSEQUENCE_H
 #define LEETCODE_IN_CPP_LONGEST_COMMON_SUBSEQUENCE_H
