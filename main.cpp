@@ -5,10 +5,10 @@ using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
-#include "balancedStringSplit.h"
+#include "climbStairs.h"
 
 int main () {
-    string s = "RLRRLLRLRL";
-    cout << balancedStringSplit(s);
+    int i = 4;
+    cout << climbStairs(i);
     return 0;
 }
