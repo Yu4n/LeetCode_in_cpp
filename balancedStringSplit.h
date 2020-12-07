@@ -5,19 +5,17 @@
 #ifndef LEETCODE_IN_CPP_BALANCEDSTRINGSPLIT_H
 #define LEETCODE_IN_CPP_BALANCEDSTRINGSPLIT_H
 // RL
-int balancedStringSplit(string s){
-    int r_num = 0, l_num = 0, cnt = 0;
-    for (string::iterator it = s.begin(); it != s.end(); ++it){
-        if (*it == 'L'){
-            l_num++;
-        } else{
-            r_num++;
-        }
-        if (l_num == r_num){
-            cnt++;
-            l_num = r_num = 0;
-        }
+int balancedStringSplit(string s) {
+    int cntr=0,res=0;
+    for(int i=0;s[i];i++)
+    {
+        if(s[i]=='R')
+            cntr++;
+        else
+            cntr--;
+        if(cntr==0)
+            res++;
     }
-    return cnt;
+    return res;
 }
 #endif //LEETCODE_IN_CPP_BALANCEDSTRINGSPLIT_H
