@@ -5,10 +5,21 @@ using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
-#include "climbStairs.h"
+
+string::size_type findChar(string &s, char c, string::size_type & occurs){
+    auto ret = s.size();
+    occurs = 0;
+    for (decltype(ret) i = 0; i != s.size(); ++i){
+        if (s[i] == c){
+            if (ret == s.size())
+                ret = i;
+            occurs++;
+        }
+    }
+    return ret;
+}
 
 int main () {
-    int i = 4;
-    cout << climbStairs(i);
-    return 0;
+    int i = 9;
+    cout << "test", cin >> i, cout << i;
 }
