@@ -6,20 +6,16 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-string::size_type findChar(const string &s, char c, string::size_type & occurs){
-    auto ret = s.size();
-    occurs = 0;
-    for (decltype(ret) i = 0; i != s.size(); ++i){
-        if (s[i] == c){
-            if (ret == s.size())
-                ret = i;
-            occurs++;
-        }
-    }
-    return occurs;
+void swap(int *&a, int *&b){
+    int *c = a;
+    a = b;
+    b = c;
 }
 
 int main () {
-    string::size_type ctr;
-    cout << findChar("hello, world!", 'o', ctr);
+    int a = 12, b = 21;
+    int *p = &a, *q = &b;
+    swap(p,q);
+    cout << *p << ", " << *q;
+    return 0;
 }
