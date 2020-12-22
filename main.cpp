@@ -5,17 +5,10 @@ using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
-
-void swap(int *&a, int *&b){
-    int *c = a;
-    a = b;
-    b = c;
-}
+#include "longest_increasing_subsequence.h"
 
 int main () {
-    int a = 12, b = 21;
-    int *p = &a, *q = &b;
-    swap(p,q);
-    cout << *p << ", " << *q;
+    vector<int> nums = {10,9,2,5,3,7,101,18};
+    cout << lengthOfLIS(nums);
     return 0;
 }
