@@ -26,7 +26,6 @@ int knapsack(int num, int cap, int wt[], int val[]){
     return dp[num][cap];
 }
 int main() {
-
     int times;
     cin >> times;
     for (int t = 0; t < times; ++t){
