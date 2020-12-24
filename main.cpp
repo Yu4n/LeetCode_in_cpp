@@ -21,17 +21,11 @@ int knapsack_full(int num, int cap, int wt[], int val[]){
                 dp[i][j] = dp[i-1][j];
             } else{
                 int prior = dp[i-1][j-wt[i-1]];
-                int temp;
                 if (prior != -1){
-                    temp = val[i-1]+dp[i-1][j-wt[i-1]];
+                    dp[i][j] = std::max(prior + val[i-1], dp[i-1][j]);
                 } else{
-                    temp = -1;
+                    dp[i][j] = dp[i-1][j];
                 }
-                dp[i][j] = std::max(temp,dp[i-1][j]);
-//                if (dp[i-1][j] != -1)
-//                    dp[i][j] = std::max(dp[i-1][j],val[i-1]+dp[i-1][j-wt[i-1]]);
-//                else
-//                    dp[i][j] = dp[i-1][j];
             }
         }
     }
@@ -53,7 +47,6 @@ int main() {
         }
         cout << knapsack_full(num, cap, wt, val) << endl;
     }
-//    int wt[] = {1,2,6}, val[] = {3,5,2};
-//    cout << knapsack_full(5,4,wt,val);
+
     return 0;
 }
