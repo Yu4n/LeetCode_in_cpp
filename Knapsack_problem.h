@@ -77,15 +77,11 @@ int knapsack_full(int num, int cap, int wt[], int val[]){
 
     for(int i = 1; i <= num; ++i){
         for(int j = 1; j <= cap; ++j){
-            if (wt[i-1] > j){
+            int prior = dp[i-1][j-wt[i-1]];
+            if (wt[i-1] > j || prior == -1){
                 dp[i][j] = dp[i-1][j];
             } else{
-                int prior = dp[i-1][j-wt[i-1]];
-                if (prior != -1){
-                    dp[i][j] = std::max(prior + val[i-1], dp[i-1][j]);
-                } else{
-                    dp[i][j] = dp[i-1][j];
-                }
+                dp[i][j] = std::max(prior + val[i-1], dp[i-1][j]);
             }
         }
     }
