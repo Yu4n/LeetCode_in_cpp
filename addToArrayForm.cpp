@@ -2,17 +2,16 @@
 // Created by Yu4n on 2021-03-22.
 //
 
-vector<int> addToArrayForm(vector<int> &A, int K) {
-    int i, size = A.size();
-
-    for (i = size - 1; i >= 0 && K != 0; i--) {
-        K = K + A[i];
-        A[i] = K % 10;
-        K = K / 10;
+vector<int> addToArrayForm(vector<int> &A, int K)
+{
+    vector<int> res;
+    for(int i = A.size() - 1; i >= 0 || K > 0; --i){ // or condition
+        if(i >= 0){ // add if A[i] is valid
+            K = K + A[i];
+        }
+        res.push_back(K % 10);
+        K /= 10;
     }
-    while (K != 0) {
-        A.insert(A.begin(), K % 10); // insert to begin
-        K = K / 10;
-    }
-    return A;
+    std::reverse(res.begin(), res.end());
+    return res;
 }
