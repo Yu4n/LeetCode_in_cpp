@@ -13,7 +13,6 @@ vector<int> twoSum(vector<int>& nums, int target) {
         mp[nums[i]] = i;
     }
 }
-
 vector<int> twoSum1(vector<int>& nums, int target) {
     vector<int> temp;
     bool flag = false;
