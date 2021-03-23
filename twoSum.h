@@ -31,4 +31,17 @@ vector<int> twoSum1(vector<int>& nums, int target) {
     }
     return temp;
 }
+vector<int> twoSumSorted(vector<int>& nums, int target) {
+    int l = 0, r = nums.size() - 1;
+    while (l <= r){
+        if(target == nums[l] + nums[r]){
+            return vector<int>{l+1,r+1};
+        } else if (target < nums[l] + nums[r]){
+            r--;
+        } else{
+            l++;
+        }
+    }
+    return {};
+}
 #endif //LEETCODE_IN_CPP_TWOSUM_H
