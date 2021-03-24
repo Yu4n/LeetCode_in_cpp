@@ -23,9 +23,12 @@ vector<vector<int>> threeSum(vector<int>& nums) {
                 r--;
             } else if(target < 0){
                 l++;
-
+                //while (l<r-1&&nums[l]==nums[l+1]) l++;
+                //l++;
             } else{
                 r--;
+                //while (l<r-1&&nums[r]==nums[r-1]) r--;
+                //r--;
             }
         }
     }
