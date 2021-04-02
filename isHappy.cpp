@@ -36,3 +36,16 @@ bool isHappyHashSet(int n){
     }
     return false;
 }
+
+bool isHappyHashMap(int n){
+    std::unordered_map<int, bool> m;
+    while (n != 1){
+        if (m[n] == 0){
+            m[n] = 1;
+        } else{
+            return false;
+        }
+        n = digitSquareSum(n);
+    }
+    return true;
+}
