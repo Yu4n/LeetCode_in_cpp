@@ -30,7 +30,7 @@ bool isHappyHashSet(int n){
     while (m.find(n)==m.end()){
         m.insert(n);
         n = digitSquareSum(n);
-        if (m.find(n)!=m.end() && n == 1){
+        if (n == 1){
             return true;
         }
     }
