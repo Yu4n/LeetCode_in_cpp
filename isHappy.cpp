@@ -24,3 +24,15 @@ bool isHappy(int n) {
     } while(slow != fast);
     return 0;
 }
+
+bool isHappyHashSet(int n){
+    std::unordered_set<int> m;
+    while (m.find(n)==m.end()){
+        m.insert(n);
+        n = digitSquareSum(n);
+        if (m.find(n)!=m.end() && n == 1){
+            return true;
+        }
+    }
+    return false;
+}
