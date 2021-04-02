@@ -49,3 +49,19 @@ bool isHappyHashMap(int n){
     }
     return true;
 }
+
+bool isHappyBrent(int n) {
+    int slow = n, fast = digitSquareSum(n);
+    int cnt = 1, lim = 2;
+    while(slow != fast){
+        if(cnt == lim){
+            cnt = 1;
+            lim = lim*2;
+            slow = fast;
+        }
+        else
+            cnt ++;
+        fast = digitSquareSum(fast);
+    }
+    return fast == 1 ;
+}
