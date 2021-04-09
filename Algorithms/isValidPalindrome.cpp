@@ -5,23 +5,14 @@
 bool isPalindrome(string s) {
     int low = 0, high = s.size() - 1;
     while (low < high){
-        while (!isalnum(s[low])){
+        while (!isalnum(s[low]) && low < high){
             low++;
-            if(low > high){
-                return true;
-            }
         }
-        while (!isalnum(s[high])){
+        while (!isalnum(s[high]) && low < high){
             high--;
-            if(low > high){
-                return true;
-            }
         }
-        if (tolower(s[low]) != tolower(s[high])){
+        if (tolower(s[low++]) != tolower(s[high--])){
             return false;
-        } else{
-            low++;
-            high--;
         }
     }
     return true;
