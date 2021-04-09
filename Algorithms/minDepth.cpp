@@ -20,3 +20,10 @@ int minDepth(TreeNode *root) {
     }
     return 0;
 }
+
+int minDepthRecursion(TreeNode *root) {
+    if (!root) return 0;
+    if (!root->left) return minDepth(root->right) + 1; // only right subtree
+    else if (!root->right) return minDepth(root->left) + 1; // only left subtree
+    else return min(minDepth(root->left), minDepth(root->right)) + 1;
+}
