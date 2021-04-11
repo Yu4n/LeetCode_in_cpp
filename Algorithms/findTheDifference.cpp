@@ -3,11 +3,18 @@
 //
 
 char findTheDifference(string s, string t) {
-    int n = t.size();
-    char c = t[n - 1];
-    for (int i = 0; i < n - 1; ++i) {
-        c ^= s[i];
-        c ^= t[i];
+    char c = 0;
+    for (char ch : s + t) {
+        c ^= ch;
     }
     return c;
+}
+
+char findTheDifference(string s, string t) {
+    int sums = 0, sumt = 0;
+    for (char c : s)
+        sums += (int) c;
+    for (char c : t)
+        sumt += (int) c;
+    return (char) (sumt - sums);
 }
