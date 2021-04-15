@@ -22,3 +22,12 @@ int missingNumber(vector<int> &nums) {
     }
     return nums.size();
 }
+
+int missingNumber(vector<int> &nums) {
+    int n = nums.size(), act_sum = 0;
+    int expected_sum = n * (n + 1) / 2;
+    for (int num: nums) {
+        act_sum += num;
+    }
+    return expected_sum - act_sum;
+}
