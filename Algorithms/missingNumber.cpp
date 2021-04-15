@@ -31,3 +31,19 @@ int missingNumber(vector<int> &nums) {
     }
     return expected_sum - act_sum;
 }
+
+// similar to find first missing positive
+int missingNumber(vector<int> &nums) {
+    int i = 0;
+    int n = nums.size();
+    while (i < n) {
+        if (nums[i] >= 0 && nums[i] < n && nums[nums[i]] != nums[i])
+            std::swap(nums[i], nums[nums[i]]);
+        else
+            i++;
+    }
+    for (i = 0; i < n; ++i)
+        if (nums[i] != i)
+            return i;
+    return n;
+}
