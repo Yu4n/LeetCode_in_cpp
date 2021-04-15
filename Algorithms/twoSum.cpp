@@ -1,8 +1,6 @@
 //
 // Created by Yu4n on 2020-10-29.
 //
-#ifndef LEETCODE_IN_CPP_TWOSUM_H
-#define LEETCODE_IN_CPP_TWOSUM_H
 
 vector<int> twoSum(vector<int>& nums, int target) {
     std::unordered_map<int,int> mp;
@@ -13,6 +11,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
         mp[nums[i]] = i;
     }
 }
+
 vector<int> twoSum1(vector<int>& nums, int target) {
     vector<int> temp;
     bool flag = false;
@@ -31,17 +30,3 @@ vector<int> twoSum1(vector<int>& nums, int target) {
     }
     return temp;
 }
-vector<int> twoSumSorted(vector<int>& nums, int target) {
-    int l = 0, r = nums.size() - 1;
-    while (l <= r){
-        if(target == nums[l] + nums[r]){
-            return vector<int>{l+1,r+1};
-        } else if (target < nums[l] + nums[r]){
-            r--;
-        } else{
-            l++;
-        }
-    }
-    return {};
-}
-#endif //LEETCODE_IN_CPP_TWOSUM_H
