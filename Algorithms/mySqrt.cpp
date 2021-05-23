@@ -15,3 +15,11 @@ int mySqrt(int x) {
     }
     return res;
 }
+
+int mySqrtOn(int x) {
+    int i = 0;
+    while ((long) (i + 1) * (i + 1) <= x) {
+        i++;
+    }
+    return i;
+}
